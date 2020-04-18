@@ -1,5 +1,5 @@
 from django import forms
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail, get_connection
 
@@ -12,6 +12,9 @@ class ContactForm(forms.Form):
 
 
 def contact(request):
+    """
+    Creates 'contact us form' and sends email
+    """
     submitted = False
     if request.method == 'POST':
         form = ContactForm(request.POST)
