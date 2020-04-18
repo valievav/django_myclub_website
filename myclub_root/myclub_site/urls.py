@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
+from . import contact
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('contact/', contact.contact, name='contact'),
     # to add reset password link (name should be 'admin_password_reset'!)
     path('admin/password_reset/', auth_views.PasswordResetView.as_view(), name='admin_password_reset'),
     path('admin/password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
